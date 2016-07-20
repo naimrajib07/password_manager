@@ -1,0 +1,25 @@
+= form_for @account, html: { class: "form form-horizontal post" } do |f|
+  .form-group
+    = f.label :title, class: 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :title, class: 'form-control', required: true
+    = f.error_span(:title)
+  .form-group
+    = f.label :username, class: 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :username, class: 'form-control', required: true
+    = f.error_span(:username)
+  .form-group
+    = f.label :password, class: 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :password, class: 'form-control', required: true
+    = f.error_span(:password)
+  .form-group
+    = f.label :url, class: 'control-label col-lg-2'
+    .col-lg-10
+      = f.text_field :url, class: 'form-control', required: true
+    = f.error_span(:url)
+  .form-group
+    .col-lg-offset-2.col-lg-10
+      = f.submit nil,class: 'btn btn-primary'
+      = link_to t('.cancel', :default => t("helpers.links.cancel")), accounts_path, :class => 'btn btn-default'
