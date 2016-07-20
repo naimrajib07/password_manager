@@ -16,7 +16,7 @@
     - @accounts.each do |account|
       %tr
         %td= link_to account.id, account_path(account)
-        %td= account.title
+        %td= link_to account.title, account_path(account)
         %td= account.category.name
         %td= account.username
         %td= account.password
