@@ -7,7 +7,7 @@
   .form-group
     = f.label "Categroy Name", class: 'control-label col-lg-2'
     .col-lg-10
-      = f.select :category_id, Category.all.collect { |cat| [ cat.name, cat.id ] }, include_blank: true, class: 'control-label col-lg-2'
+      = f.select :category_id, Category.list, include_blank: true, class: 'control-label col-lg-2'
     = f.error_span(:category_id)
   .form-group
     = f.label :username, class: 'control-label col-lg-2'
