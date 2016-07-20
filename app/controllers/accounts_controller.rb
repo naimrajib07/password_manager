@@ -15,6 +15,7 @@ class AccountsController < ApplicationController
   # GET /accounts/new
   def new
     @account = Account.new
+    @account.build_category
   end
 
   # GET /accounts/1/edit
@@ -69,6 +70,6 @@ class AccountsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def account_params
-    params.require(:account).permit(:title, :username, :password, :url)
+    params.require(:account).permit(:title, :username, :password, :url, :category_id)
   end
 end

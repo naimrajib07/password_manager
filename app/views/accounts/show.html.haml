@@ -7,6 +7,10 @@
   %br
   = @account.title
 %p
+  %strong= model_class.human_attribute_name(:name) + ':'
+  %br
+  = @account.category_id
+%p
   %strong= model_class.human_attribute_name(:username) + ':'
   %br
   = @account.username
