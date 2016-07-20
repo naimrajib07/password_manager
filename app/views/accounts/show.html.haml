@@ -6,14 +6,15 @@
   %strong= model_class.human_attribute_name(:title) + ':'
   %br
   = @account.title
-%p
-  %strong= model_class.human_attribute_name(:name) + ':'
-  %br
-  = @account.category_id
+
 %p
   %strong= model_class.human_attribute_name(:username) + ':'
   %br
   = @account.username
+%p
+  %strong= model_class.human_attribute_name(:category) + ':'
+  %br
+  = @account.name
 %p
   %strong= model_class.human_attribute_name(:password) + ':'
   %br
