@@ -1,3 +1,24 @@
 // Place all the styles related to the accounts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+a#generate-password {
+  float: left;
+  width: 16%;
+  display: inline-block;
+  padding: 3px;
+  text-decoration: none;
+  border-radius: 3px;
+  color: #fff;
+  background-color: #428bca;
+  border-color: #357ebd;
+  margin-left: 20px;
+  height: 32px;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 6px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

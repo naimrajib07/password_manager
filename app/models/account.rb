@@ -3,7 +3,7 @@ class Account < ActiveRecord::Base
 
   PASSWORD_FORMAT = /\A
                       (?=.{10,})         # Must contain 8 or more characters
-                      (?=.*\d)           # Must contain a digit
+                      (?=.*\d{3,})       # Must contain a digit
                       (?=.*[a-z])        # Must contain a lower case character
                       (?=.*[A-Z])        # Must contain an upper case character
                       (?=.*[[$]])        # Must contain a dollar
@@ -22,4 +22,10 @@ class Account < ActiveRecord::Base
   scope :sort_by_category, -> { order(category_id: :asc) }
 
   delegate :name , to: :category
+
+  validate :custom_password
+
+  def custom_password
+    password.split('')
+  end
 end

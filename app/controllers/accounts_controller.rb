@@ -62,6 +62,10 @@ class AccountsController < ApplicationController
     end
   end
 
+  def generate_password
+    render json: {suggested_password: secure_password}
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_account
@@ -71,5 +75,34 @@ class AccountsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def account_params
     params.require(:account).permit(:title, :username, :password, :url, :category_id)
+  end
+
+  def secure_password
+    password.split('').shuffle.join
+  end
+
+  # 10 letters (with at least one capital letter),
+  # 3 numbers and
+  # one special character
+  def password
+    password_len = rand(9..14)
+    small_letter_len = rand(3..4)
+    capital_letter_len = rand(2..3)
+    number_len = rand(1..(password_len - (small_letter_len + capital_letter_len)))
+    special_character = '$'
+
+    small_letter(small_letter_len) + natural_number(number_len) + capital_letter(capital_letter_len) + special_character
+  end
+
+  def small_letter(len)
+    ('a'..'z').to_a.shuffle.first(len).join
+  end
+
+  def capital_letter(len)
+    ('A'..'Z').to_a.shuffle.first(len).join
+  end
+
+  def natural_number(len)
+    (0..9).to_a.shuffle.first(len).join
   end
 end

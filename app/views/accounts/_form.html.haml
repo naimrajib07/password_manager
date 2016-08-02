@@ -17,7 +17,8 @@
   .form-group
     = f.label :password, class: 'control-label col-lg-2'
     .col-lg-10
-      = f.password_field :password, class: 'form-control', required: true
+      = f.text_field :password, size: 20,  id: 'password',class: 'form-control', required: true
+      = link_to 'Generate Password', 'javascript:void(0);', id: 'generate-password'
     = f.error_span(:password)
   .form-group
     = f.label :url, class: 'control-label col-lg-2'
